@@ -4,18 +4,20 @@ function Navbar() {
   return (
     <nav>
       <div className="left">
-        <a href="/">
+        <a href="/" className="logo">
           <img src="/logo.png" alt="" />
           <span>LamaEstate</span>
         </a>
-        <a>Home</a>
-        <a>About</a>
-        <a>Contact</a>
-        <a>Agents</a>
+        <a href="/">Home</a>
+        <a href="/">About</a>
+        <a href="/">Contact</a>
+        <a href="/">Agents</a>
       </div>
       <div className="right">
-        <a>Sign in</a>
-        <a>Sign up</a>
+        <a href="/">Sign in</a>
+        <a href="/" className="register">
+          Sign up
+        </a>
       </div>
     </nav>
   );
