@@ -1,11 +1,30 @@
+import { useState } from "react";
 import "./searchBar.scss";
 
+const types = ["buy", "rent"];
+
 export const SearchBar = () => {
+  const [query, setQuery] = useState({
+    type: "buy",
+    location: "",
+    maxPrice: 0,
+    minPrice: 0,
+  });
+  const switchType = (val) => {
+    setQuery((prev) => ({ ...prev, type: val }));
+  };
   return (
     <div className="searchBar">
       <div className="type">
-        <button>Buy</button>
-        <button>Rent</button>
+        {types.map((type) => (
+          <button
+            key={type}
+            onClick={() => switchType(type)}
+            className={query.type === type ? "active" : ""}
+          >
+            {type}
+          </button>
+        ))}
         <form>
           <input type="text" name="location" placeholder="City Location" />
           <input
