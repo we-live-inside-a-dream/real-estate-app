@@ -10,9 +10,11 @@ export const SearchBar = () => {
     maxPrice: 0,
     minPrice: 0,
   });
+
   const switchType = (val) => {
     setQuery((prev) => ({ ...prev, type: val }));
   };
+
   return (
     <div className="searchBar">
       <div className="type">
@@ -25,27 +27,27 @@ export const SearchBar = () => {
             {type}
           </button>
         ))}
-        <form>
-          <input type="text" name="location" placeholder="City Location" />
-          <input
-            type="number"
-            name="minPrice"
-            min={0}
-            max={10000000}
-            placeholder="Min Price"
-          />
-          <input
-            type="number"
-            name="maxPrice"
-            min={0}
-            max={10000000}
-            placeholder="Max Price"
-          />
-          <button>
-            <img src="/search.png" alt="" />
-          </button>
-        </form>
       </div>
+      <form>
+        <input type="text" name="location" placeholder="City Location" />
+        <input
+          type="number"
+          name="minPrice"
+          min={0}
+          max={10000000}
+          placeholder="Min Price"
+        />
+        <input
+          type="number"
+          name="maxPrice"
+          min={0}
+          max={10000000}
+          placeholder="Max Price"
+        />
+        <button>
+          <img src="/search.png" alt="" />
+        </button>
+      </form>
     </div>
   );
 };
