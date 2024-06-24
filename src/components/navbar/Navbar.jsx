@@ -26,7 +26,10 @@ function Navbar() {
               alt=""
             />
             <span>John Doe</span>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile" className="profile">
+              <div className="notification">3</div>
+              <span>Profile</span>
+            </Link>
           </div>
         ) : (
           <>
