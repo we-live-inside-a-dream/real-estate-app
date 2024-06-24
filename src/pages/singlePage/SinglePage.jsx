@@ -103,7 +103,7 @@ export const SinglePage = () => {
               Send a Message
             </button>
             <button>
-              <img src="/chat.png" alt="" />
+              <img src="/save.png" alt="" />
               Save the Place
             </button>
           </div>
