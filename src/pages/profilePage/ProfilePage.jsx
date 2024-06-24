@@ -1,3 +1,4 @@
+import { Chat } from "../../components/chat/Chat";
 import { List } from "../../components/list/List";
 import "./profilePage.scss";
 
@@ -35,7 +36,9 @@ export const ProfilePage = () => {
           <List />
         </div>
       </div>
-      <div className="chatContainer"></div>
+      <div className="chatContainer">
+        <Chat />
+      </div>
     </div>
   );
 };
