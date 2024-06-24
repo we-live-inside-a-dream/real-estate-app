@@ -1,3 +1,4 @@
+import { List } from "../../components/list/List";
 import "./profilePage.scss";
 
 export const ProfilePage = () => {
@@ -31,6 +32,7 @@ export const ProfilePage = () => {
           <div className="title">
             <h1>Saved List</h1>
           </div>
+          <List />
         </div>
       </div>
       <div className="chatContainer"></div>
