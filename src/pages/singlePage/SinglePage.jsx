@@ -23,7 +23,7 @@ export const SinglePage = () => {
                 <span>{userData.name}</span>
               </div>
             </div>
-            <div className="bottom">Bottom</div>
+            <div className="bottom">{singlePostData.description}</div>
           </div>
         </div>
       </div>

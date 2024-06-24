@@ -9,6 +9,7 @@
             padding-right: 50px;
 
             .info{
+                margin-top: 50px;
                 .top{
                     display: flex;
                     justify-content: space-between;
@@ -60,7 +61,12 @@
                         }
                     }
                 }
-                .bottom{}
+                .bottom{
+                    margin-top: 50px;
+                    color: #555;
+                    line-height: 20px;
+
+                }
             }
         }
     }
