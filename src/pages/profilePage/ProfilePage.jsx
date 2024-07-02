@@ -25,6 +25,7 @@ export const ProfilePage = () => {
             <span>
               Email: <b>john@gmail.com</b>
             </span>
+            <button>Logout</button>
           </div>
           <div className="title">
             <h1>My List</h1>
