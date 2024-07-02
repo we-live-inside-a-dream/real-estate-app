@@ -5,6 +5,7 @@ import { ListPage } from "./pages/listPage/ListPage";
 import { SinglePage } from "./pages/singlePage/SinglePage";
 import { ProfilePage } from "./pages/profilePage/ProfilePage";
 import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
 
 function App() {
   const router = createBrowserRouter([
