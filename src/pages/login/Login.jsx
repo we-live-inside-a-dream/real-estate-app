@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import apiRequest from "../../lib/apiRequest";
 
 function Login() {
   const [error, setError] = useState("");
@@ -12,20 +12,21 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
     const formData = new FormData(e.target);
 
     const username = formData.get("username");
-    const email = formData.get("email");
     const password = formData.get("password");
 
     try {
-      const res = await axios.post("http://localhost:8800/api/auth/register", {
+      const res = await apiRequest.post("/auth/login", {
         username,
-        email,
         password,
       });
-      navigate("/login");
-      console.log(res.data);
+      console.log(res);
+      localStorage.setItem("user", JSON.stringify(res.data))
+      navigate("/")
+
     } catch (err) {
       console.log(err);
       setError(err.response.data.message);
