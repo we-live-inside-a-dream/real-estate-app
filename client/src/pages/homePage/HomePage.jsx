@@ -4,10 +4,9 @@ import "./homePage.scss";
 import { AuthContext } from "../../context/AuthContext";
 
 export const HomePage = () => {
+  const { currentUser } = useContext(AuthContext);
 
-  const {currentUser} = useContext(AuthContext)
-
-  console.log(currentUser)
+  console.log(currentUser);
 
   return (
     <div className="homePage">
