@@ -7,8 +7,10 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 
 export const ProfilePage = () => {
-  const navigate = useNavigate();
   const { updateUser, currentUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const handleLogout = async () => {
     try {
       await apiRequest.post("/auth/logout");
