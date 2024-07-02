@@ -34,8 +34,8 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <Link to={"/"}>Sign in</Link>
-            <Link to={"/"} className="register">
+            <Link to={"/login"}>Sign in</Link>
+            <Link to={"/register"} className="register">
               Sign up
             </Link>
           </>
