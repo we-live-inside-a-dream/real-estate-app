@@ -49,7 +49,11 @@ export const updateUsers = async (req, res) => {
         ...(avatar && { avatar }),
       },
     });
-    res.status(200).json(updatedUser);
+
+    // The code below is to extract the password and not send it to the front-end
+    const {password: userPassword, ...rest} = updatedUser
+    // Here we are sending rest (rest of the info excluding the password!)
+    res.status(200).json(rest);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to update users!" });
