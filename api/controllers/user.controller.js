@@ -25,7 +25,7 @@ export const getUser = async (req, res) => {
   }
 };
 
-export const updateUsers = async (req, res) => {
+export const updateUser = async (req, res) => {
   // The two lines below are to compare the id from params and the id from token to see if they match and we are the owner of this account so that we can update it.
   const id = req.params.id;
   const tokenUserId = req.userId;
@@ -51,7 +51,7 @@ export const updateUsers = async (req, res) => {
     });
 
     // The code below is to extract the password and not send it to the front-end
-    const {password: userPassword, ...rest} = updatedUser
+    const { password: userPassword, ...rest } = updatedUser;
     // Here we are sending rest (rest of the info excluding the password!)
     res.status(200).json(rest);
   } catch (err) {
@@ -60,7 +60,7 @@ export const updateUsers = async (req, res) => {
   }
 };
 
-export const deleteUsers = async (req, res) => {
+export const deleteUser = async (req, res) => {
   const id = req.params.id;
   const tokenUserId = req.userId;
 

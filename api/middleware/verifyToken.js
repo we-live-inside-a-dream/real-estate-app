@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.token;
+  console.log(req.cookies.token, "cookies yum yum");
 
   if (!token) return res.status(401).json({ message: "Not Authenticated!" });
 
@@ -11,6 +12,4 @@ export const verifyToken = (req, res, next) => {
 
     next();
   });
-
-
 };

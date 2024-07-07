@@ -3,12 +3,12 @@ import "./profileUpdatePage.scss";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 import { useNavigate } from "react-router-dom";
-// import UploadWidget from "../../components/uploadWidget/UploadWidget";
+import { UploadWidget } from "../../components/uploadWidget/Uploadwidget";
 
 export const ProfileUpdatePage = () => {
   const { currentUser, updateUser } = useContext(AuthContext);
   const [error, setError] = useState("");
-  const [avatar, setAvatar] = useState([]);
+  const [avatar, setAvatar] = useState(currentUser.avatar);
 
   const navigate = useNavigate();
 
@@ -18,19 +18,55 @@ export const ProfileUpdatePage = () => {
 
     const { username, email, password } = Object.fromEntries(formData);
 
+    console.log(currentUser.id);
+
     try {
       const res = await apiRequest.put(`/users/${currentUser.id}`, {
         username,
         email,
         password,
-        avatar: avatar[0],
+        avatar,
       });
+      console.log(res.headers, "headers");
       updateUser(res.data);
       navigate("/profile");
     } catch (err) {
       console.log(err);
       setError(err.response.data.message);
     }
+
+    // try {
+    //   const response = await fetch(
+    //     `http://localhost:8800/api/users/${currentUser.id}`,
+    //     {
+    //       method: "PUT",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization:
+    //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODM0YWRjNWVkNzU2OWE4NjYyODRhMCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MjAzODQ3MzUsImV4cCI6MTc4MDg2NDczNX0.8QPzbXvtkhSZPrhUB5uuF-F02WP7m_ecdWpAG0XzPi8",
+    //       },
+    //       body: JSON.stringify({
+    //         username,
+    //         email,
+    //         password,
+    //         avatar,
+    //       }),
+    //       credentials: "include",
+    //     }
+    //   );
+
+    //   if (!response.ok) {
+    //     throw new Error("Network response was not ok");
+    //   }
+
+    //   const data = await response.json();
+    //   console.log(response.headers, "headers");
+    //   updateUser(data);
+    //   navigate("/profile");
+    // } catch (err) {
+    //   console.log(err);
+    //   setError("An error occurred. Please try again.");
+    // }
   };
 
   return (
@@ -65,20 +101,16 @@ export const ProfileUpdatePage = () => {
         </form>
       </div>
       <div className="sideContainer">
-        <img
-          src={avatar[0] || currentUser.avatar || "/noavatar.jpg"}
-          alt=""
-          className="avatar"
-        />
+        <img src={avatar || "/noavatar.jpeg"} alt="" className="avatar" />
         <UploadWidget
           uwConfig={{
-            cloudName: "lamadev",
+            cloudName: "dbxqtxyvq",
             uploadPreset: "estate",
             multiple: false,
             maxImageFileSize: 2000000,
             folder: "avatars",
           }}
-          setState={setAvatar}
+          setAvatar={setAvatar}
         />
       </div>
     </div>
