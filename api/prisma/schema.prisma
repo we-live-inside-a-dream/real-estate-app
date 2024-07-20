@@ -27,7 +27,7 @@ model Post {
   id         String      @id @default(auto()) @map("_id") @db.ObjectId
   title      String
   price      Int
-  img        String
+  images     String[]
   address    String
   city       String
   bedroom    Int
@@ -56,7 +56,7 @@ enum Property {
 
 model PostDetail {
   id         String  @id @default(auto()) @map("_id") @db.ObjectId
-  des        String
+  desc       String
   utilities  String?
   pet        String?
   income     String?
