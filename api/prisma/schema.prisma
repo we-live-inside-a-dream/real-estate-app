@@ -63,7 +63,7 @@ model PostDetail {
   size       Int?
   school     Int?
   bus        Int?
-  resturaunt Int?
+  restaurant Int?
   post       Post    @relation(fields: [postId], references: [id])
   postId     String  @unique @db.ObjectId
 }
