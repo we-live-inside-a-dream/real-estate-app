@@ -70,6 +70,13 @@
             }
         }
 
+        a {
+            flex: 1;
+            background-color: #fece51;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
         button{
             border: none;
             cursor: pointer;
@@ -80,6 +87,7 @@
                 padding: 10px;
             }
         }
+    }
 
         img{
             width: 24px;
