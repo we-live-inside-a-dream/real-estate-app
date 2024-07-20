@@ -7,7 +7,6 @@ import DOMPurify from "dompurify";
 
 export const SinglePage = () => {
   const post = useLoaderData();
-  console.log(post);
   return (
     <div className="singlePage">
       <div className="details">
@@ -25,7 +24,7 @@ export const SinglePage = () => {
               </div>
               <div className="user">
                 <img src={post.user.avatar} alt="" />
-                <span>{post.user.userame}</span>
+                <span>{post.user.username}</span>
               </div>
             </div>
             <div
