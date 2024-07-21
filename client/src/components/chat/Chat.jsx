@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./chat.scss";
 
-export const Chat = () => {
+export const Chat = ({ chats }) => {
   const [chat, setChat] = useState(true);
+
+  console.log(chats);
   return (
     <div className="chat">
       <div className="messages">
