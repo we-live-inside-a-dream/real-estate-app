@@ -1,11 +1,10 @@
 import { Card } from "../card/Card";
-import { listData } from "../../lib/dummydata";
 import "./list.scss";
 
-export const List = () => {
+export const List = ({ posts }) => {
   return (
     <div className="list">
-      {listData.map((item) => (
+      {posts.map((item) => (
         <Card key={item.id} item={item} />
       ))}
     </div>
