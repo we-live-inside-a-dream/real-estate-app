@@ -27,6 +27,24 @@ export const getChat = async (req, res) => {
           hasSome: [tokenUserId],
         },
       },
+      include: {
+        messages: {
+          orderBy: {
+            createdAt: "asc",
+          },
+        },
+      },
+    });
+
+    await prisma.chat.update({
+      where: {
+        id: req.params.id,
+      },
+      data: {
+        seenBy: {
+          push: [tokenUserId],
+        },
+      },
     });
     res.status(200).json(chat);
   } catch (err) {
