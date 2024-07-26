@@ -4,7 +4,7 @@
   "description": "A real estate application",
   "private": true,
   "scripts": {
-    "start": "concurrently \"npm run start:api\" \"npm run start:client\" \"npm run start:socket\"",
+    "start": "npm run start:api && npm run start:client && npm run start:socket",
     "start:api": "npm --prefix api start",
     "start:client": "npm --prefix client start",
     "start:socket": "npm --prefix socket start",
