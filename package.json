@@ -8,9 +8,10 @@
     "start:api": "npm --prefix api start",
     "start:client": "npm --prefix client start",
     "start:socket": "npm --prefix socket start",
-    "install": "npm install --prefix api && npm install --prefix client && npm install --prefix socket"
+    "install": "npm install --prefix api && npm install --prefix client && npm install --prefix socket",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "devDependencies": {
-    "concurrently": "^6.2.1"
+    "concurrently": "^6.5.1"
   }
 }

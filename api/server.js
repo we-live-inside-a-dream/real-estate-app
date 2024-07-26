@@ -16,6 +16,9 @@ const app = express();
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
 app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"))
+})
 
 app.use(express.json());
 app.use(cookieParser());
@@ -27,6 +30,6 @@ app.use("/api/test", testRoute);
 app.use("/api/chats", chatRoute);
 app.use("/api/messages", messageRoute);
 
-app.listen(8800, () => {
+app.listen(process.env.PORT || 8800, () => {
   console.log("server is running!");
 });
