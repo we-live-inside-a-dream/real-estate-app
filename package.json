@@ -8,8 +8,5 @@
     "build": "cd client && npm run build",
     "start:api": "npm --prefix api start",
     "install": "npm install --prefix api && npm install --prefix client"
-  },
-  "devDependencies": {
-    "concurrently": "^6.5.1"
   }
 }
