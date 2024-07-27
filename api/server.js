@@ -8,17 +8,17 @@ import dotenv from "dotenv";
 import testRoute from "./routes/test.route.js";
 import chatRoute from "./routes/chat.route.js";
 import messageRoute from "./routes/message.route.js";
+import path from "path";
+import { Server } from "socket.io";
+import http from "http";
 
 dotenv.config();
 
 const app = express();
+const __dirname = path.resolve();
+// app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
-
-// app.use(express.static(path.join(__dirname, "client/build")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/client/build", "index.html"))
-// })
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -29,7 +29,12 @@ app.use("/api/posts", postRoute);
 app.use("/api/test", testRoute);
 app.use("/api/chats", chatRoute);
 app.use("/api/messages", messageRoute);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
+});
 
-app.listen(process.env.PORT || 8800, () => {
+const server = http.createServer(app);
+export const io = new Server(server);
+server.listen(process.env.PORT || 8800, () => {
   console.log("server is running!");
 });

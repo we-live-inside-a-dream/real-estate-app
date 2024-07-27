@@ -4,12 +4,10 @@
   "description": "A real estate application",
   "private": true,
   "scripts": {
-    "start": "npm run start:api && npm run start:client && npm run start:socket",
+    "start": "npm run start:api",
+    "build": "cd client && npm run build",
     "start:api": "npm --prefix api start",
-    "start:client": "npm --prefix client start",
-    "start:socket": "npm --prefix socket start",
-    "install": "npm install --prefix api && npm install --prefix client && npm install --prefix socket",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "install": "npm install --prefix api && npm install --prefix client"
   },
   "devDependencies": {
     "concurrently": "^6.5.1"
