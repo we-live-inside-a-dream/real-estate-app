@@ -22,9 +22,8 @@ function Navbar() {
           <span>LamaEstate</span>
         </Link>
         <Link to={"/"}>Home</Link>
-        <Link to={"/"}>About</Link>
+        <Link to={"/list"}>Properties</Link>
         <Link to={"/"}>Contact</Link>
-        <Link to={"/"}>Agents</Link>
       </div>
       <div className="right">
         {currentUser ? (
