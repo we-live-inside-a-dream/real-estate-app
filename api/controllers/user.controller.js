@@ -96,7 +96,7 @@ export const savePost = async (req, res) => {
     if (savedPost) {
       await prisma.savedPost.delete({
         where: {
-          id: savePost.id,
+          id: savedPost.id,
         },
       });
       res.status(200).json({ message: "Post removed from saved list" });
@@ -109,8 +109,6 @@ export const savePost = async (req, res) => {
       });
       res.status(200).json({ message: "Post saved" });
     }
-
-    res.status(200).json({ message: "User deleted!" });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to delete users!" });
@@ -124,16 +122,12 @@ export const profilePosts = async (req, res) => {
     const userPosts = await prisma.post.findMany({
       where: { userId: tokenUserId },
     });
-    const saved = await prisma.post.findMany({
+    const saved = await prisma.savedPost.findMany({
       where: { userId: tokenUserId },
       include: {
-        // post: true,
-        user: true,
-        postDetail: true,
-        savedPosts: true,
+        post: true,
       },
     });
-
     const savedPosts = saved.map((item) => item.post);
     res.status(200).json({ userPosts, savedPosts });
   } catch (err) {

@@ -4,9 +4,9 @@ import "./list.scss";
 export const List = ({ posts }) => {
   return (
     <div className="list">
-      {posts.map((item) => (
-        <Card key={item.id} item={item} />
-      ))}
+      {posts.map((item) =>
+        item && item.id ? <Card key={item.id} item={item} /> : null
+      )}
     </div>
   );
 };
