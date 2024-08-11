@@ -48,11 +48,16 @@ function Navbar() {
         </div>
         <div className={open ? "menu active" : "menu"}>
           <Link to={"/"}>Home</Link>
-          <Link to={"/"}>About</Link>
-          <Link to={"/"}>Contact</Link>
-          <Link to={"/"}>Agents</Link>
-          <Link to={"/"}>Sign in</Link>
-          <Link to={"/"}>Sign up</Link>
+          <Link to={"/list"}>Properties</Link>
+          <a
+            href="https://rezanaeim.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contact
+          </a>
+          <Link to={"/login"}>Sign in</Link>
+          <Link to={"/register"}>Sign up</Link>
         </div>
       </div>
     </nav>
