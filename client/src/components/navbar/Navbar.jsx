@@ -23,7 +23,13 @@ function Navbar() {
         </Link>
         <Link to={"/"}>Home</Link>
         <Link to={"/list"}>Properties</Link>
-        <Link to={"/"}>Contact</Link>
+        <a
+          href="https://rezanaeim.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contact
+        </a>
       </div>
       <div className="right">
         {currentUser ? (
